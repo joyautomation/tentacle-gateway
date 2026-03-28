@@ -1,0 +1,24 @@
+{
+  "name": "@joyautomation/tentacle-gateway",
+  "version": "0.0.1",
+  "exports": "./main.ts",
+  "tasks": {
+    "dev": "deno run --allow-all --watch --env-file=.env main.ts"
+  },
+  "imports": {
+    "@tentacle/plc": "../tentacle-plc/mod.ts",
+    "@tentacle/plc/ethernetip": "../tentacle-plc/ethernetip.ts",
+    "@tentacle/plc/opcua": "../tentacle-plc/opcua.ts",
+    "@tentacle/plc/snmp": "../tentacle-plc/snmp.ts",
+    "@tentacle/plc/modbus": "../tentacle-plc/modbus.ts",
+    "@tentacle/nats-schema": "../tentacle-nats-schema/src/mod.ts",
+    "@joyautomation/tentacle-nats-schema": "../tentacle-nats-schema/src/mod.ts",
+    "@joyautomation/nats-schema": "../tentacle-nats-schema/src/mod.ts",
+    "@joyautomation/coral": "jsr:@joyautomation/coral@^0.0.12",
+    "@joyautomation/dark-matter": "jsr:@joyautomation/dark-matter@^0.0.26",
+    "@nats-io/transport-deno": "jsr:@nats-io/transport-deno@3.3",
+    "@nats-io/jetstream": "jsr:@nats-io/jetstream@3.3",
+    "@nats-io/kv": "jsr:@nats-io/kv@3",
+    "@nats-io/nats-core": "jsr:@nats-io/nats-core@3.3"
+  }
+}
