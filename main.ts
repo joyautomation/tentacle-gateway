@@ -74,7 +74,9 @@ async function startPlc(
   config: GatewayConfigKV,
   natsUrl: string,
 ): Promise<void> {
-  const varCount = Object.keys(config.variables).length;
+  const atomicCount = Object.keys(config.variables).length;
+  const udtCount = Object.keys(config.udtVariables ?? {}).length;
+  const varCount = atomicCount + udtCount;
   const deviceCount = Object.keys(config.devices).length;
 
   if (varCount === 0) {
@@ -83,7 +85,7 @@ async function startPlc(
   }
 
   log.info(
-    `Building PLC from gateway config: ${deviceCount} device(s), ${varCount} variable(s)`,
+    `Building PLC from gateway config: ${deviceCount} device(s), ${atomicCount} atomic + ${udtCount} UDT variable(s)`,
   );
 
   const plcConfig = translateConfig(config, { servers: natsUrl });
